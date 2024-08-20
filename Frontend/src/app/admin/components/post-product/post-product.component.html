@@ -1,0 +1,127 @@
+<!-- <div class="container">
+    <h2>Add Product</h2>
+    <form [formGroup]="productForm" (ngSubmit)="addProduct()">
+      <div fxLayout="column" fxLayoutAlign="center center">
+        <div class="file-upload-container">
+          <label class="file-upload-label">
+            <span>Select a File</span>
+            <input type="file" id="fileInput" (change)="onFileSelected($event)" hidden>
+            <mat-icon>attach_file</mat-icon>
+          </label>
+        </div>
+        <div *ngIf="imagePreview" class="image-preview">
+          <div class="circle-image">
+            <img [src]="imagePreview" alt="Selected image" class="circle-image">
+          </div>
+        </div>
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Select a Category</mat-label>
+          <mat-select formControlName="categoryId" name="categoryId">
+            <mat-option *ngFor="let category of listOfCategories" [value]="category.id">
+              {{category.name}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="productForm.get('categoryId')?.hasError('required')">
+            This input is required!
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field" >
+          
+            <input matInput formControlName="name" placeholder="name"  type="text">
+            <mat-error *ngIf="productForm.get('name')?.hasError('required')">This input is required!</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="form-field" >
+           
+            <input matInput formControlName="price"   type="number" placeholder="price">
+            <mat-error *ngIf="productForm.get('price')?.hasError('required')">This input is required!</mat-error>
+          </mat-form-field>
+          <img src="assets/img/photos/01.jpg" class="d-block w-100" alt="First slide">
+          
+          <mat-form-field appearance="outline" class="form-field" >
+          
+            <input matInput formControlName="description"   type="text" placeholder="Description">
+            <mat-error *ngIf="productForm.get('description')?.hasError('required')">This input is required!</mat-error>
+          </mat-form-field>
+
+          <button mat-raised-button color="primary" type="submit"  >Add Product </button>
+      </div>
+    </form>
+  </div> -->
+
+
+
+  
+  <div class="container mt-5">
+    <div class="card p-2">
+      <div class="row">
+        <div class="col-6">
+          <form [formGroup]="productForm" (ngSubmit)="addProduct()">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Product Name</mat-label>
+              <input matInput placeholder="Product Name" formControlName="name">
+              <mat-error *ngIf="productForm.get('name')?.hasError('required')">This input is required!</mat-error>
+            </mat-form-field>
+            
+            <mat-form-field class="w-100" appearance="outline">
+              <mat-label>Categories</mat-label>
+              <mat-select formControlName="categoryId" placeholder="Select Category">
+                <mat-option *ngFor="let category of listOfCategories" [value]="category.id">
+                  {{ category.name }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="productForm.get('categoryId')?.hasError('required')">This input is required!</mat-error>
+            </mat-form-field>
+          
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Product Description</mat-label>
+              <input matInput placeholder="Product Description" formControlName="description">
+              <mat-error *ngIf="productForm.get('description')?.hasError('required')">This input is required!</mat-error>
+            </mat-form-field>
+            
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Product Actual Price</mat-label>
+              <input matInput placeholder="Product Actual Price" formControlName="price">
+              <mat-error *ngIf="productForm.get('price')?.hasError('required')">This input is required!</mat-error>
+              <mat-error *ngIf="productForm.get('price')?.hasError('pattern')">Invalid price format!</mat-error>
+            </mat-form-field>
+          
+            <div align="end">
+              <button mat-stroked-button color="primary" style="margin-right: 3px;" (click)="clearForm()">Clear</button>
+              <button type="submit" mat-stroked-button color="primary">Add Product</button>
+            </div>
+          </form>
+          
+        </div>
+        <div class="col-6">
+          <div>
+            <div class="dropzone" appDrag (files)="onFileSelected($event)">
+              <div class="text-wrapper">
+                <div class="centered"   >
+                  Drag and drop your file or
+                  <a (click)="selectFile.click()" class="browse-button" >browse</a>
+                  a file
+                </div>
+              </div>
+            </div>
+            <input multiple type="file" style="display: none;" #selectFile (change)="onFileSelected($event)">
+          </div>
+          <div class="mt-5">
+            <div class="row">
+              <mat-grid-list cols="4" rowHeight="1:1">
+                <mat-grid-tile *ngFor="let file of selectedFiles; let i = index;">
+                  <div style="position: relative">
+                    <span class="btn-remove-image" (click)="removeImage(i)">x</span>
+                    <img [src]="file.url" width="150px" height="150px" *ngIf="file.url" />
+                  </div>
+                </mat-grid-tile>
+              </mat-grid-list>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  

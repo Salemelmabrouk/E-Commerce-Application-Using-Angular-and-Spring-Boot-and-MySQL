@@ -1,0 +1,31 @@
+<div class="container mt-5">
+    <!-- Search Field -->
+    <mat-form-field appearance="outline" class="w-50">
+      <mat-label>Search any Product</mat-label>
+      <input 
+        #searchkeyword
+        (keyup)="onSearch(searchkeyword.value)"
+        matInput 
+        name="searchKey" 
+        id="searchKey" 
+        placeholder="Search any Product">      
+    </mat-form-field>
+  
+    <!-- Product Grid List -->
+    <mat-grid-list cols="5" rowHeight="3:4" gutterSize="10">
+      <mat-grid-tile *ngFor="let product of products">
+        <div class="product-card row p-3">
+            <h3>{{ product.name }}</h3>
+            <p>{{ product.description }}</p>
+            <p>Price: {{ product.price | currency }}</p>
+            <img *ngIf="product.bytesImg" [src]=" product.bytesImg[0] " alt="Product Image"/>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  
+    <!-- Load More Button -->
+    <div class="text-center mt-5" style="padding-bottom: 100px;">
+      <button type="button" mat-raised-button color="primary" (click)="loadProducts()">Load more</button>
+    </div>
+  </div>
+  

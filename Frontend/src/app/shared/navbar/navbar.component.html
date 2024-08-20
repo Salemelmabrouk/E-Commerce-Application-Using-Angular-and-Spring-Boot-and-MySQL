@@ -1,0 +1,149 @@
+<!-- Unauthenticated Users Navbar -->
+<div *ngIf="!isCustomerLoggedIn && !isAdminLoggedIn">
+  <mat-toolbar color="primary" class="navbar h-14 flex items-center justify-between">
+    <span class="inline-block align-middle h-8 flex items-center">
+      <span class="material-icons">local_mall</span>
+      <span class="mt-[2px]">E-commerce</span>
+    </span>
+    <div class="flex items-center mt-[-6px]">
+      <button mat-button routerLink="/home" routerLinkActive="active" class="toolbar-button ml-4">
+        <div class="nav__item">
+          <span class="material-icons icon-small">home</span>
+          <span class="nav__label">Home</span>
+        </div>
+      </button>
+      <button mat-button class="navbar-brand primary ml-4" routerLink="/order" routerLinkActive="active">
+        <div class="nav__item">
+          <span class="material-icons">insights</span>
+          <span class="nav__label">Order</span>
+        </div>
+      </button>
+      <button mat-button routerLink="/notifications" routerLinkActive="active" class="toolbar-button ml-4">
+        <div class="nav__item">
+          <span class="material-icons">notifications</span>
+          <span class="nav__label">Notifications</span>
+        </div>
+      </button>
+      <button mat-button routerLink="/register" routerLinkActive="active" class="toolbar-button ml-4">
+        <div class="nav__item">
+          <span class="material-icons">how_to_reg</span>
+          <span class="nav__label">Register</span>
+        </div>
+      </button>
+      <button mat-button routerLink="/login" routerLinkActive="active" class="toolbar-button ml-4">
+        <div class="nav__item">
+          <span class="material-icons">perm_identity</span>
+          <span class="nav__label">Login</span>
+        </div>
+      </button>
+      <button mat-button routerLink="/dashboard" (click)="logout()" routerLinkActive="active" class="toolbar-button ml-4">
+        <div class="nav__item">
+          <span class="material-icons">logout</span>
+          <span class="nav__label">Logout</span>
+        </div>
+      </button>
+    </div>
+  </mat-toolbar>
+</div>
+
+<!-- Admin Navbar -->
+<div *ngIf="isAdminLoggedIn" class="nav__list">
+  <mat-toolbar color="primary" class="navbar h-14 flex items-center justify-between">
+    <span class="inline-block align-middle h-8 flex items-center">
+      <span class="material-icons">local_mall</span>
+      <span class="mt-[2px]">E-commerce</span>
+    </span>
+    <div class="flex items-center mt-[-6px]">
+      <button mat-button routerLink="/admin/dashboard" routerLinkActive="active" class="toolbar-button ml-4">
+        <div class="nav__item">
+          <span class="material-icons icon-small">home</span>
+          <span class="nav__label">Home</span>
+        </div>
+      </button>
+      <button mat-button class="navbar-brand primary ml-4" routerLink="/order" routerLinkActive="active">
+        <div class="nav__item">
+          <span class="material-icons">insights</span>
+          <span class="nav__label">Order</span>
+        </div>
+      </button>
+      <button mat-button routerLink="/admin/category" routerLinkActive="active" class="toolbar-button ml-4">
+        <div class="nav__item">
+          <span class="material-icons">category</span>
+          <span class="nav__label">Category</span>
+        </div>
+      </button>
+      <button mat-button routerLink="/admin/analytics" routerLinkActive="active" class="toolbar-button ml-4">
+        <div class="nav__item">
+          <span class="material-icons">analytics</span>
+          <span class="nav__label">Analytics</span>
+        </div>
+      </button>
+      <button mat-button routerLink="/admin/product" routerLinkActive="active" class="toolbar-button ml-4">
+        <div class="nav__item">
+          <span class="material-icons">inventory</span>
+          <span class="nav__label">Product</span>
+        </div>
+      </button>
+      <button mat-button routerLink="/admin/post-coupon" routerLinkActive="active" class="toolbar-button ml-4">
+        <div class="nav__item">
+          <span class="material-icons">add</span>
+          <span class="nav__label">Post Coupon</span>
+        </div>
+      </button>
+      <button mat-button routerLink="/dashboard" (click)="logout()" routerLinkActive="active" class="toolbar-button ml-4">
+        <div class="nav__item">
+          <span class="material-icons">logout</span>
+          <span class="nav__label">Logout</span>
+        </div>
+      </button>
+    </div>
+  </mat-toolbar>
+</div>
+
+<!-- Customer Navbar -->
+<div *ngIf="isCustomerLoggedIn && !isAdminLoggedIn">
+  <mat-toolbar color="primary" class="navbar h-14 flex items-center justify-between">
+    <span class="inline-block align-middle h-8 flex items-center">
+      <span class="material-icons">local_mall</span>
+      <span class="mt-[2px]">E-commerce</span>
+    </span>
+    <div class="flex items-center mt-[-6px]">
+      <button mat-button routerLink="/home" routerLinkActive="active" class="toolbar-button ml-4">
+        <div class="nav__item">
+          <span class="material-icons">home</span>
+          <span class="nav__label">Home</span>
+        </div>
+      </button>
+      <button mat-button class="navbar-brand primary ml-4" routerLink="/order" routerLinkActive="active">
+        <div class="nav__item">
+          <span class="material-icons">insights</span>
+          <span class="nav__label">Order</span>
+        </div>
+      </button>
+      <button mat-button routerLink="/notifications" routerLinkActive="active" class="toolbar-button ml-4">
+        <div class="nav__item">
+          <span class="material-icons">notifications</span>
+          <span class="nav__label">Notifications</span>
+        </div>
+      </button>
+      <button mat-button routerLink="/register" routerLinkActive="active" class="toolbar-button ml-4">
+        <div class="nav__item">
+          <span class="material-icons">how_to_reg</span>
+          <span class="nav__label">Register</span>
+        </div>
+      </button>
+      <button mat-button routerLink="/login" routerLinkActive="active" class="toolbar-button ml-4">
+        <div class="nav__item">
+          <span class="material-icons">perm_identity</span>
+          <span class="nav__label">Login</span>
+        </div>
+      </button>
+      <button mat-button routerLink="/dashboard" (click)="logout()" routerLinkActive="active" class="toolbar-button ml-4">
+        <div class="nav__item">
+          <span class="material-icons">logout</span>
+          <span class="nav__label">Logout</span>
+        </div>
+      </button>
+    </div>
+  </mat-toolbar>
+</div>

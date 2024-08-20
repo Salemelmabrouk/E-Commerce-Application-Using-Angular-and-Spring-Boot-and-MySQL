@@ -1,0 +1,33 @@
+<div> 
+  <h2>Add Category</h2>
+  <form [formGroup]="categoryForm" (ngSubmit)="addCategory()">
+    <div fxLayout="column" fxLayoutAlign="center center">
+      <div fxFlex="100%">
+        <mat-form-field appearance="outline" class="form-field">
+          
+          <input matInput formControlName="name" name="name" placeholder="Name">
+          <mat-error *ngIf="categoryForm.controls['name'].hasError('required')">
+            Name is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div fxLayout="column" fxLayoutAlign="center center">
+      <div fxFlex="100%">
+        <mat-form-field appearance="outline" class="form-field">
+          
+          <input matInput formControlName="description" name="description" placeholder="Description">
+          <mat-error *ngIf="categoryForm.controls['description'].hasError('required')">
+            Description is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="center center" class="form-field">
+      <button mat-raised-button color="primary" type="submit" [disabled]="categoryForm.invalid">Add Category</button>
+    </div>
+  </form>
+</div>
+

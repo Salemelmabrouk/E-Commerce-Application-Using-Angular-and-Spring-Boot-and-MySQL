@@ -1,0 +1,105 @@
+/*style.css*/
+/* Importing CSS files at the top 
+@import 'node_modules/material-icons/iconfont/material-icons.css';
+@import 'node_modules/feather-icons/dist/feather.css';
+@import 'node_modules/@angular/material/prebuilt-themes/indigo-pink.css';
+*/
+
+ 
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  border-color: #3f51b5; /* Change to your desired color */
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-thick {
+  border-width: 2px; /* Change to your desired thickness */
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-label {
+  color: #3f51b5; /* Change to your desired label color */
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-label-floating {
+  color: #3f51b5; /* Change to your desired floating label color */
+}
+
+.custom-input {
+  padding: 8px; /* Change to your desired padding */
+  border: 1px solid #ccc; /* Change to your desired border style */
+  border-radius: 4px; /* Change to your desired border radius */
+  width: 100%; /* Ensure it takes full width */
+}
+
+.material-icons,
+.icon-bell {
+  font-size: 24px; /* Initial icon size */
+  transition: transform 0.2s ease; /* Smooth transition for transform property */
+}
+
+.material-icons:hover,
+.icon-bell:hover {
+  transform: scale(1.2); /* Scale the icon to 120% on hover */
+}
+
+.fonticon-wrap {
+  width: 2%;
+  float: left;
+  margin: 0.25rem;
+}
+
+.toolbar-button {
+  position: relative; /* Ensure position context for absolute child */
+}
+
+.toolbar-button .material-icons {
+  transition: transform 0.3s ease; /* Smooth transition effect */
+}
+
+.toolbar-button:hover .material-icons {
+  transform: scale(1.2); /* Scale the icon on hover (adjust scale factor as needed) */
+}
+
+.custom-input-field {
+  height: 60px; /* Adjust this value to your desired height */
+}
+
+.custom-input-field .mat-form-field-flex {
+  height: 100%; /* Ensure the internal flex container takes the full height */
+}
+
+.custom-input-field .mat-form-field-infix {
+  padding: 0; /* Remove any padding to allow the input to take full height */
+  height: 100%;
+}
+
+.custom-input-field input.mat-input-element {
+  height: 100%; /* Make the input element take full height */
+  padding: 10px; /* Adjust padding as needed for better appearance */
+}
+
+:host ::ng-deep .custom-form-field .mat-form-field-wrapper {
+  height: 60px !important; /* Desired height */
+}
+
+:host ::ng-deep .custom-form-field .mat-form-field-flex {
+  height: 100%;
+  align-items: center;
+}
+
+:host ::ng-deep .custom-form-field .mat-form-field-infix {
+  padding: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+ 
